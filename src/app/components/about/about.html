@@ -1,0 +1,56 @@
+<div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg animate-fade-in">
+  <header class="text-center mb-10">
+    <h1 class="text-5xl font-extrabold font-serif text-amber-900 tracking-tight">About Kenya Heritage Explorer</h1>
+    <p class="mt-4 text-xl text-stone-700">
+      Your digital gateway to the rich, diverse, and vibrant history of Kenya.
+    </p>
+  </header>
+
+  <section class="prose prose-lg max-w-none text-stone-700 mb-12 text-justify">
+    <p>
+      The Kenya Heritage Explorer is an interactive web application designed to celebrate and preserve the incredible tapestry of Kenya's cultural and historical landmarks. Our mission is to provide an engaging, educational, and accessible platform for everyone—from students and historians to curious travelers—to explore the stories that have shaped this beautiful nation.
+    </p>
+    <p>
+      We believe that understanding our past is key to building our future. By combining detailed information with the power of artificial intelligence, we bring history to life, making it more than just dates and facts. It becomes a conversation, a journey of discovery.
+    </p>
+  </section>
+
+  <section>
+    <h2 class="text-3xl font-bold font-serif text-stone-800 mb-8 border-b-2 border-amber-800 pb-2 text-center">Our Features</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div *ngFor="let feature of features" class="flex items-start space-x-4 p-4 rounded-lg hover:bg-stone-50 transition-colors">
+        <div class="flex-shrink-0 w-16 h-16 bg-amber-800 rounded-lg flex items-center justify-center shadow">
+          <div class="w-8 h-8 text-white">
+              <ng-container [ngSwitch]="feature.id">
+                <svg *ngSwitchCase="'sites'" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z" /></svg>
+                <svg *ngSwitchCase="'heritage'" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3.75a9 9 0 100 18 9 9 0 000-18zM12 10.5v5.25m-6.364 3.636l3.535-3.535M18.364 18.364l-3.535-3.535M5.636 5.636l3.536 3.535m9.192-3.535l-3.535 3.535" /></svg>
+                <svg *ngSwitchCase="'add'" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                <svg *ngSwitchCase="'chatbot'" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" /></svg>
+              </ng-container>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold text-amber-900">{{ feature.title }}</h3>
+          <p class="mt-1 text-stone-700">{{ feature.description }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mt-12 text-center bg-amber-50/50 p-8 rounded-lg border border-amber-200">
+    <h3 class="text-2xl font-bold text-amber-900">Join the Exploration</h3>
+    <p class="mt-2 text-stone-700 max-w-2xl mx-auto">
+      Whether you are tracing your roots, planning a trip, or simply eager to learn, the Kenya Heritage Explorer is your companion. Start your journey today and uncover the treasures of Kenya's past.
+    </p>
+  </section>
+</div>
+
+<style>
+@keyframes fade-in {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in {
+    animation: fade-in 0.5s ease-out forwards;
+}
+</style>

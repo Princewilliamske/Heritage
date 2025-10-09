@@ -1,0 +1,81 @@
+<p>add-heritage-form works!</p>
+<div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-md">
+  <h2 class="text-3xl font-bold font-serif text-stone-800 mb-6 border-b-2 border-amber-800 pb-2">Add New Cultural Heritage</h2>
+  <form (ngSubmit)="handleSubmit()" #heritageForm="ngForm" class="space-y-6">
+    
+    <div>
+      <label for="community" class="block text-sm font-medium text-stone-700">Community Name</label>
+      <input
+        type="text"
+        id="community"
+        name="community"
+        [(ngModel)]="community"
+        required
+        class="mt-1 block w-full px-3 py-2 bg-white border border-stone-300 rounded-md shadow-sm placeholder-stone-400 focus:outline-none focus:ring-amber-600 focus:border-amber-600 sm:text-sm"
+        placeholder="e.g., Samburu"
+      />
+    </div>
+
+    <div>
+      <label for="description" class="block text-sm font-medium text-stone-700">Description</label>
+      <textarea
+        id="description"
+        name="description"
+        [(ngModel)]="description"
+        required
+        rows="4"
+        class="mt-1 block w-full px-3 py-2 bg-white border border-stone-300 rounded-md shadow-sm placeholder-stone-400 focus:outline-none focus:ring-amber-600 focus:border-amber-600 sm:text-sm"
+        placeholder="A brief summary of the community's culture and traditions."
+      ></textarea>
+    </div>
+
+    <div>
+      <label for="imageUrl" class="block text-sm font-medium text-stone-700">Image URL (Optional)</label>
+      <input
+        type="text"
+        id="imageUrl"
+        name="imageUrl"
+        [(ngModel)]="imageUrl"
+        class="mt-1 block w-full px-3 py-2 bg-white border border-stone-300 rounded-md shadow-sm placeholder-stone-400 focus:outline-none focus:ring-amber-600 focus:border-amber-600 sm:text-sm"
+        placeholder="https://example.com/image.jpg"
+      />
+      <p class="mt-1 text-xs text-stone-500">A placeholder image will be generated if left blank.</p>
+    </div>
+
+    <div>
+      <label for="keyAspects" class="block text-sm font-medium text-stone-700">Key Aspects</label>
+      <div class="flex items-center mt-1">
+        <input
+          type="text"
+          id="keyAspects"
+          name="currentAspect"
+          [(ngModel)]="currentAspect"
+          (keydown.enter)="addAspect(); $event.preventDefault()"
+          class="flex-grow px-3 py-2 bg-white border border-stone-300 rounded-l-md shadow-sm placeholder-stone-400 focus:outline-none focus:ring-amber-600 focus:border-amber-600 sm:text-sm"
+          placeholder="e.g., Beadwork"
+        />
+        <button type="button" (click)="addAspect()" class="px-4 py-2 border border-l-0 border-amber-800 bg-amber-800 text-white rounded-r-md hover:bg-amber-900 transition-colors">Add</button>
+      </div>
+      <div class="mt-2 flex flex-wrap gap-2" *ngIf="keyAspects.length > 0">
+        <span *ngFor="let aspect of keyAspects; let i = index" class="flex items-center bg-amber-100 text-amber-900 text-sm font-medium pl-3 pr-2 py-1 rounded-full">
+          {{ aspect }}
+          <button type="button" (click)="removeAspect(i)" class="ml-2 text-amber-600 hover:text-amber-800 focus:outline-none">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </span>
+      </div>
+    </div>
+
+    <div>
+      <button
+        type="submit"
+        [disabled]="!heritageForm.form.valid || keyAspects.length === 0"
+        class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-amber-800 hover:bg-amber-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-600 transition-colors disabled:bg-amber-300"
+      >
+        Add Cultural Heritage
+      </button>
+    </div>
+  </form>
+</div>

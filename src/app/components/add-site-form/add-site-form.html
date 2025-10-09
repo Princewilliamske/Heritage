@@ -1,0 +1,90 @@
+<div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-md">
+  <h2 class="text-3xl font-bold font-serif text-stone-800 mb-6 border-b-2 border-amber-800 pb-2">Add a New Historical Site</h2>
+  <form (ngSubmit)="handleSubmit()" #siteForm="ngForm" class="space-y-6">
+    <div>
+      <label for="name" class="block text-sm font-medium text-stone-700">
+        Site Name
+      </label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        [(ngModel)]="name"
+        required
+        class="mt-1 block w-full px-3 py-2 bg-white border border-stone-300 rounded-md shadow-sm placeholder-stone-400 focus:outline-none focus:ring-amber-600 focus:border-amber-600 sm:text-sm"
+        placeholder="e.g., The Great Mosque of Gedi"
+      />
+    </div>
+    <div>
+      <label for="description" class="block text-sm font-medium text-stone-700">
+        Description
+      </label>
+      <textarea
+        id="description"
+        name="description"
+        [(ngModel)]="description"
+        required
+        rows="4"
+        class="mt-1 block w-full px-3 py-2 bg-white border border-stone-300 rounded-md shadow-sm placeholder-stone-400 focus:outline-none focus:ring-amber-600 focus:border-amber-600 sm:text-sm"
+        placeholder="A brief history and significance of the site."
+      ></textarea>
+    </div>
+    <div>
+      <label for="location" class="block text-sm font-medium text-stone-700">
+        Location (County or Town)
+      </label>
+      <input
+        type="text"
+        id="location"
+        name="location"
+        [(ngModel)]="location"
+        required
+        class="mt-1 block w-full px-3 py-2 bg-white border border-stone-300 rounded-md shadow-sm placeholder-stone-400 focus:outline-none focus:ring-amber-600 focus:border-amber-600 sm:text-sm"
+        placeholder="e.g., Kilifi County"
+      />
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div>
+        <label for="latitude" class="block text-sm font-medium text-stone-700">
+          Latitude
+        </label>
+        <input
+          type="number"
+          id="latitude"
+          name="latitude"
+          [(ngModel)]="latitude"
+          required
+          step="any"
+          class="mt-1 block w-full px-3 py-2 bg-white border border-stone-300 rounded-md shadow-sm placeholder-stone-400 focus:outline-none focus:ring-amber-600 focus:border-amber-600 sm:text-sm"
+          placeholder="e.g., -3.3093"
+        />
+      </div>
+      <div>
+        <label for="longitude" class="block text-sm font-medium text-stone-700">
+          Longitude
+        </label>
+        <input
+          type="number"
+          id="longitude"
+          name="longitude"
+          [(ngModel)]="longitude"
+          required
+          step="any"
+          class="mt-1 block w-full px-3 py-2 bg-white border border-stone-300 rounded-md shadow-sm placeholder-stone-400 focus:outline-none focus:ring-amber-600 focus:border-amber-600 sm:text-sm"
+          placeholder="e.g., 39.9935"
+        />
+      </div>
+    </div>
+
+    <div>
+      <button
+        type="submit"
+        [disabled]="!siteForm.form.valid"
+        class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-amber-800 hover:bg-amber-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-600 transition-colors disabled:bg-amber-300"
+      >
+        Add Site
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,17 @@
+<div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col md:flex-row">
+  <img [src]="heritageInfo.imageUrl" [alt]="heritageInfo.community" class="w-full md:w-1/3 h-64 md:h-auto object-cover" />
+  <div class="p-6 flex flex-col justify-between">
+    <div>
+      <h3 class="text-2xl font-bold text-amber-900 mb-2">{{ heritageInfo.community }}</h3>
+      <p class="text-stone-700 mb-4">{{ heritageInfo.description }}</p>
+    </div>
+    <div>
+      <h4 class="font-semibold text-stone-800 mb-2">Key Aspects:</h4>
+      <div class="flex flex-wrap gap-2">
+        <span *ngFor="let aspect of heritageInfo.keyAspects" class="bg-amber-100 text-amber-900 text-xs font-semibold px-2.5 py-0.5 rounded-full">
+          {{ aspect }}
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
