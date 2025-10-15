@@ -46,7 +46,7 @@
             <div [ngClass]="{'flex-row-reverse': msg.role === 'user'}" class="flex items-start gap-3 my-4">
                 <div [ngClass]="{'bg-green-800': msg.role === 'bot', 'bg-orange-600': msg.role === 'user'}"
                     class="w-10 h-10 rounded-full flex items-center justify-center font-bold text-white shrink-0">
-                    {{ msg.role === 'bot' ? 'K' : 'U' }}
+                    {{ msg.role === 'bot' ? 'Babu' : 'You' }}
                 </div>
                 <div class="relative group w-full">
                     <div [ngClass]="{'bg-white shadow-md': msg.role === 'bot', 'bg-orange-100': msg.role === 'user'}"
@@ -95,10 +95,10 @@
         
         <div *ngIf="isLoading" class="flex items-start gap-3 my-4">
             <div class="w-10 h-10 rounded-full flex items-center justify-center font-bold text-white bg-green-800 shrink-0">
-                K
+                Babu
             </div>
             <div class="p-4 rounded-lg bg-white shadow-md flex items-center space-x-2">
-                <span class="text-stone-600">Kazi is thinking...</span>
+                <span class="text-stone-600">Babu is thinking...</span>
                 <div class="w-2 h-2 bg-green-600 rounded-full animate-bounce [animation-delay:-0.3s]"></div>
                 <div class="w-2 h-2 bg-green-600 rounded-full animate-bounce [animation-delay:-0.15s]"></div>
                 <div class="w-2 h-2 bg-green-600 rounded-full animate-bounce"></div>
